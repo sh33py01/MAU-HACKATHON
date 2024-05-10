@@ -1,1 +1,34 @@
-<p>challange-handler works!a</p>
+<div class="container">
+<p-panel >
+  <div class="panel">
+  <p-fieldset  legend="Challange" [toggleable]="true">
+    <p >
+      {{question}}
+    </p>
+  </p-fieldset>
+  </div>
+
+  <div class="card flex justify-content-center">
+    <br>
+    <p-floatLabel>
+        <textarea
+          id="float-input"
+          rows="5"
+          cols="80"
+          [autoResize]="true"
+          pInputTextarea>
+        </textarea>
+      <label for="float-input">Answer</label>
+    </p-floatLabel>
+  </div>
+</p-panel>
+  <p-speedDial
+    [model]="items"
+    direction="down"
+    [radius]="80"
+    type="semi-circle" />
+</div>
+
+
+
+

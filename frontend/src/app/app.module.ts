@@ -18,14 +18,18 @@ import {PanelModule} from "primeng/panel";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {DataViewModule} from "primeng/dataview";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {PanelModule} from "primeng/panel";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FieldsetModule} from "primeng/fieldset";
+import {InputTextareaModule} from "primeng/inputtextarea";
+import {SpeedDialModule} from "primeng/speeddial";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ChallangeHandlerComponent,
-    NavbarComponent,
-    CategoriesComponent
+    ChallangeHandlerComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,12 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     BrowserAnimationsModule,
     DataViewModule,
     FlexLayoutModule,
+    FormsModule,
+    PanelModule,
+    BrowserAnimationsModule,
+    FieldsetModule,
+    InputTextareaModule,
+    SpeedDialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
