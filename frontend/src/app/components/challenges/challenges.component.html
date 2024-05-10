@@ -1,0 +1,23 @@
+<div fxLayout="row wrap" fxLayoutGap="16px grid" class="main-div">
+  <div fxFlex="100" fxFlex.gt-sm="33" class="p-2 card" *ngFor="let i of list">
+    <p-panel [toggleable]="false">
+      <ng-template pTemplate="header">
+        <div class="flex align-items-center gap-2">
+          <i class="pi pi-bullseye text-2xl"></i>
+          <span class="font-bold" style="font-size: x-large">
+                Challenge {{i}}
+            </span>
+          <p-chip label="Front-End" />
+        </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <div class="category-footer">
+          <span class="p-text-secondary" style="align-self: center">
+            20 points
+          </span>
+          <p-button label="Open" icon="pi pi-arrow-right" iconPos="right" class="p-button-outlined"></p-button>
+        </div>
+      </ng-template>
+    </p-panel>
+  </div>
+</div>
