@@ -13,13 +13,19 @@ import {ToolbarModule} from "primeng/toolbar";
 import { ChallangeHandlerComponent } from './components/challange-handler/challange-handler.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {PasswordModule} from "primeng/password";
+import { CategoriesComponent } from './components/categories/categories.component';
+import {PanelModule} from "primeng/panel";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {DataViewModule} from "primeng/dataview";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ChallangeHandlerComponent,
-    NavbarComponent
+    NavbarComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,11 @@ import {PasswordModule} from "primeng/password";
     ButtonModule,
     FormsModule,
     ToolbarModule,
-    PasswordModule
+    PasswordModule,
+    PanelModule,
+    BrowserAnimationsModule,
+    DataViewModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
