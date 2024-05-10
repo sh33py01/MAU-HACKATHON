@@ -14,14 +14,18 @@ import { ChallangeHandlerComponent } from './components/challange-handler/challa
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PasswordModule } from "primeng/password";
 import { CategoriesComponent } from './components/categories/categories.component';
-import { PanelModule } from "primeng/panel";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { DataViewModule } from "primeng/dataview";
-import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChallengesComponent } from './components/challenges/challenges.component';
 import {ChipModule} from "primeng/chip";
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import {ChartModule} from "primeng/chart";
+import {DataViewModule} from "primeng/dataview";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {PanelModule} from "primeng/panel";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FieldsetModule} from "primeng/fieldset";
+import {InputTextareaModule} from "primeng/inputtextarea";
+import {SpeedDialModule} from "primeng/speeddial";
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,8 @@ import {ChartModule} from "primeng/chart";
     NavbarComponent,
     CategoriesComponent,
     ChallengesComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    ChallangeHandlerComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +54,12 @@ import {ChartModule} from "primeng/chart";
     FlexLayoutModule,
     ChipModule,
     ChartModule,
+    FormsModule,
+    PanelModule,
+    BrowserAnimationsModule,
+    FieldsetModule,
+    InputTextareaModule,
+    SpeedDialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
