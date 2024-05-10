@@ -9,11 +9,13 @@ import {FloatLabelModule} from "primeng/floatlabel";
 import {ChipsModule} from "primeng/chips";
 import {ButtonModule} from "primeng/button";
 import {FormsModule} from "@angular/forms";
+import { ChallangeHandlerComponent } from './components/challange-handler/challange-handler.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ChallangeHandlerComponent
   ],
   imports: [
     BrowserModule,
