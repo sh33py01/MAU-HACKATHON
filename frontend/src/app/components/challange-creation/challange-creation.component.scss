@@ -1,0 +1,46 @@
+/* Adjusting the size and centering the p-stepper */
+.p-stepper {
+  max-width: 60rem; /* Decrease the maximum width */
+  margin: auto; /* Center the stepper horizontally */
+  padding: 2rem; /* Add some padding for spacing */
+  border: 1px solid #ccc; /* Add a border for visual separation */
+  border-radius: 0.5rem; /* Add some rounded corners */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  flex-direction: column; /* Arrange items vertically */
+}
+
+/* Styling the p-stepper panels */
+.p-stepperPanel {
+  padding: 1rem; /* Add padding for spacing between panels */
+  border-bottom: 1px solid #ccc; /* Add a bottom border between panels */
+}
+
+/* Styling the header of each panel */
+.p-stepperPanel-header {
+  font-size: 1.2rem; /* Increase font size for better readability */
+  font-weight: bold; /* Emphasize the header */
+  margin-bottom: 0.5rem; /* Add some spacing below the header */
+}
+
+/* Styling the content within each panel */
+.p-stepperPanel-content {
+  margin-bottom: 1rem; /* Add some spacing below the content */
+}
+
+/* Styling the buttons within the stepper */
+.p-button {
+  margin-top: 1rem; /* Add some spacing above the buttons */
+}
+
+/* Styling for previous button */
+.p-button-prev {
+  margin-right: auto; /* Push the button to the left */
+}
+
+/* Styling for next button */
+.p-button-next {
+  margin-top:40px;
+  margin-left: auto; /* Push the button to the right */
+}

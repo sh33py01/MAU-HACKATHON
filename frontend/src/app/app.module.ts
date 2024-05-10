@@ -8,7 +8,7 @@ import {CardModule} from "primeng/card";
 import {FloatLabelModule} from "primeng/floatlabel";
 import {ChipsModule} from "primeng/chips";
 import {ButtonModule} from "primeng/button";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ToolbarModule} from "primeng/toolbar";
 import { ChallangeHandlerComponent } from './components/challange-handler/challange-handler.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -18,6 +18,12 @@ import {PanelModule} from "primeng/panel";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {DataViewModule} from "primeng/dataview";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {ChallangeCreationComponent} from "./components/challange-creation/challange-creation.component";
+import {StepsModule} from "primeng/steps";
+import {DialogModule} from "primeng/dialog";
+import {StepperModule} from "primeng/stepper";
+import {PickListModule} from "primeng/picklist";
+import {ListboxModule} from "primeng/listbox";
 
 @NgModule({
   declarations: [
@@ -25,7 +31,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     LoginComponent,
     ChallangeHandlerComponent,
     NavbarComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ChallangeCreationComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -41,6 +49,12 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     BrowserAnimationsModule,
     DataViewModule,
     FlexLayoutModule,
+    StepsModule,
+    DialogModule,
+    StepperModule,
+    PickListModule,
+    ReactiveFormsModule,
+    ListboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
