@@ -18,12 +18,18 @@ import {PanelModule} from "primeng/panel";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {DataViewModule} from "primeng/dataview";
 import {FlexLayoutModule} from "@angular/flex-layout";
+
 import {ChallangeCreationComponent} from "./components/challange-creation/challange-creation.component";
 import {StepsModule} from "primeng/steps";
 import {DialogModule} from "primeng/dialog";
 import {StepperModule} from "primeng/stepper";
 import {PickListModule} from "primeng/picklist";
 import {ListboxModule} from "primeng/listbox";
+import {PanelModule} from "primeng/panel";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FieldsetModule} from "primeng/fieldset";
+import {InputTextareaModule} from "primeng/inputtextarea";
+import {SpeedDialModule} from "primeng/speeddial";
 
 @NgModule({
   declarations: [
@@ -33,7 +39,7 @@ import {ListboxModule} from "primeng/listbox";
     NavbarComponent,
     CategoriesComponent,
     ChallangeCreationComponent,
-
+    ChallangeHandlerComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +61,12 @@ import {ListboxModule} from "primeng/listbox";
     PickListModule,
     ReactiveFormsModule,
     ListboxModule,
+    FormsModule,
+    PanelModule,
+    BrowserAnimationsModule,
+    FieldsetModule,
+    InputTextareaModule,
+    SpeedDialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
