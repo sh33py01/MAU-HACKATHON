@@ -9,13 +9,23 @@ import {FloatLabelModule} from "primeng/floatlabel";
 import {ChipsModule} from "primeng/chips";
 import {ButtonModule} from "primeng/button";
 import {FormsModule} from "@angular/forms";
+import {ToolbarModule} from "primeng/toolbar";
 import { ChallangeHandlerComponent } from './components/challange-handler/challange-handler.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import {PasswordModule} from "primeng/password";
+import { CategoriesComponent } from './components/categories/categories.component';
+import {PanelModule} from "primeng/panel";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {DataViewModule} from "primeng/dataview";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ChallangeHandlerComponent
+    ChallangeHandlerComponent,
+    NavbarComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +34,13 @@ import { ChallangeHandlerComponent } from './components/challange-handler/challa
     FloatLabelModule,
     ChipsModule,
     ButtonModule,
-    FormsModule
+    FormsModule,
+    ToolbarModule,
+    PasswordModule,
+    PanelModule,
+    BrowserAnimationsModule,
+    DataViewModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
