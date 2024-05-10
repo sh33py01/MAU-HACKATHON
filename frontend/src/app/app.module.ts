@@ -20,6 +20,8 @@ import { DataViewModule } from "primeng/dataview";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChallengesComponent } from './components/challenges/challenges.component';
 import {ChipModule} from "primeng/chip";
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import {ChartModule} from "primeng/chart";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import {ChipModule} from "primeng/chip";
     ChallangeHandlerComponent,
     NavbarComponent,
     CategoriesComponent,
-    ChallengesComponent
+    ChallengesComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import {ChipModule} from "primeng/chip";
     DataViewModule,
     FlexLayoutModule,
     ChipModule,
+    ChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
