@@ -6,37 +6,19 @@
           <input pInputText id="username" [(ngModel)]="username" />
           <label for="username">Username</label>
         </p-floatLabel>
+
         <p-floatLabel>
-          <input pInputText id="password" [(ngModel)]="password" />
-          <label for="password">Password</label>
+          <p-password [(ngModel)]="password" [feedback]="false" />
+          <label>Password</label>
         </p-floatLabel>
       </div>
       <ng-template pTemplate="footer">
-        <p-button label="Login" severity="primary" class="w-full" styleClass="w-full" />
+        <div  style="display: flex; flex-direction: row; gap: 16px;">
+          <p-button label="Login" severity="primary" class="w-full" styleClass="w-full" />
+          <p-button label="Continue as Guest" severity="secondary" class="w-full" styleClass="w-full" />
+        </div>
       </ng-template>
-      <!--      <ng-template pTemplate="header">-->
-<!--        <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />-->
-<!--      </ng-template>-->
-<!--      <p>-->
-<!--        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque-->
-<!--        quas!-->
-<!--      </p>-->
-<!--      <ng-template pTemplate="footer">-->
-<!--        <div class="flex gap-3 mt-1">-->
-<!--          <p-button label="Cancel" severity="secondary" class="w-full" styleClass="w-full" />-->
-<!--          <p-button label="Save" class="w-full" styleClass="w-full" />-->
-<!--        </div>-->
-<!--      </ng-template>-->
     </p-card>
-<!--      <p-card-header>-->
-<!--        <mat-card-title>-->
-<!--          <h1>Login to University Management System</h1>-->
-<!--        </mat-card-title>-->
-<!--      </p-card-header>-->
-<!--      <mat-card-content>-->
-<!--        <p>To log in please use the Google account that is under 'cit.edu.al' domain.</p>-->
-<!--        <button mat-raised-button">Login with Google</button>-->
-<!--      </mat-card-content>-->
   </div>
   <div style="display:flex; flex-flow: row; flex-grow: 0.5">
     <span style="flex: 1 1 auto;"></span>
