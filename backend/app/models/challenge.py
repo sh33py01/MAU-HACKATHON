@@ -40,6 +40,7 @@ class Challenge(Base, TimestampMixin):
     question = Column(String(255), nullable=False)
     description = Column(String(255), nullable=False)
     points = Column(BigInteger, default=0)
+    category = Column(String, default="default")
 
     solved: bool = False
 

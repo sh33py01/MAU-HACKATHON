@@ -1,6 +1,9 @@
 from typing import Any, Coroutine, TypeVar, Generic, Union, Dict, List, Optional
 
-from sqlalchemy import select
+from celery import Celery
+from sqlalchemy import select, update, text
+
+from worker import celery_app, run_sandboxed
 
 from app.models import Challenge, CodeChallenge, TextChallenge, ChoiceChallenge
 from app.models.challenge import ChallengeSubmission, CodeChallengeCase
@@ -65,7 +68,22 @@ class _ChallengeController(BaseController[ChallengeVar]):
                                                 & (ChallengeSubmission.correct == True)))) != None
 
     @Transactional(propagation=Propagation.REQUIRED)
-    async def submit(self, ch: Challenge, user: User, correct: Optional[bool]):
+    async def submit(self, ch: Challenge, user: User, correct: Optional[bool]) -> Coroutine[Any, Any, bool]:
+        if correct == True:
+            # Add score to player if not previously solved
+            if not await self.solved_by(ch, user):
+                await self.repository.session.execute(
+                    text("UPDATE users SET score = score + :sc WHERE users.id = :id"),
+                    {
+                        "sc": ch.points,
+                        "id": user.id
+                    }
+                )
+                # await self.repository.session.execute(update(User), {
+                #     "id": user.id,
+                #     "score": User.score + ch.points
+                # })
+        
         self.repository.session.add(
             ChallengeSubmission(
                 challenge_id = ch.id,
@@ -73,6 +91,8 @@ class _ChallengeController(BaseController[ChallengeVar]):
                 correct = correct
             )
         )
+
+        return correct
 
 
 class TextChallengeController(_ChallengeController[TextChallenge]):
@@ -84,9 +104,16 @@ class ChoiceChallengeController(_ChallengeController[ChoiceChallenge]):
 
 
 class CodeChallengeController(_ChallengeController[CodeChallenge]):
+    def __init__(self, challenge_repository: TaskRepository):
+        super().__init__(challenge_repository)
     
     def submit(self, ch: Challenge, user: User, code: str ):
-        return super().submit(ch, user, code == "bazinga")
+        result = run_sandboxed.delay(code, [{
+            "content": case.content,
+            "answer": case.answer
+        } for case in ch.cases]).wait(timeout=None)
+
+        return super().submit(ch, user, result)
 
     @Transactional(propagation=Propagation.REQUIRED)
     async def add_test_cases(self, code_challenge: CodeChallenge, cases: List[CodeChallengeCase]) -> List[CodeChallengeCase]:

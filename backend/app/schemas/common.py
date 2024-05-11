@@ -18,6 +18,12 @@ class ChallengeModel(BaseModel):
     description: str = Field(
         ..., description="Task description", example="Task 1 description"
     )
+    points: int = Field(
+        ..., description="Amount of points this challenge awards"
+    )
+    category: str = Field(
+        ..., description="Challenge category"
+    )
     # uuid: UUID4 = Field(
     #     ..., description="Task UUID", example="a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
     # )
@@ -47,3 +53,8 @@ class CodeChallengeCase(BaseModel):
 class CodeChallengeModel(ChallengeModel):
     ...
     # code: str = Field(..., description="The code submission to the challenge")
+
+
+class ScoreboardItem(BaseModel):
+    username: str
+    score: int

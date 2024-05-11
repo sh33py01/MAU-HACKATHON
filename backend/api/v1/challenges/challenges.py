@@ -3,7 +3,6 @@ from typing import Callable, Union
 
 from fastapi import APIRouter, Depends, Request
 
-from app.controllers import TaskController
 from app.controllers.challenge import ChallengeControllers, CodeChallengeController
 from app.models.challenge import ChallengePermission
 from app.schemas.requests.challenge import CreateCodeChallengeRequest, SubmitCodeChallengeRequest
@@ -42,7 +41,9 @@ async def add_challenge(
     created = await code_challenge_controller.add({
         "question": create.question,
         "description": create.description,
-        "challenge_author_id": request.user.id
+        "challenge_author_id": request.user.id,
+        "points": create.points,
+        "category": create.category
     })
 
     await code_challenge_controller.add_test_cases(created, create.cases)
@@ -62,7 +63,7 @@ async def add_challenge(
     return await code_challenge_controller.get_by_id_on_user(request.user, id)
 
 @challenges_router.post("/code/{id}",
-                       response_model=None,
+                       response_model=bool,
                        dependencies=[Depends(AuthenticationRequired)])
 async def submit_code(
     request: Request,
@@ -71,5 +72,5 @@ async def submit_code(
     assert_access: Callable = Depends(Permissions(ChallengePermission.READ)),
     code_challenge_controller: CodeChallengeController = Depends(partial(Factory().get_code_challenge_controller))
 ) -> list[ChallengeResponse]:
-    ch = await code_challenge_controller.get_by_id(id)
-    await code_challenge_controller.submit(ch, request.user, submit.code)
+    ch = (await code_challenge_controller.get_by_id(id, join_={"cases"}))[0]
+    return await code_challenge_controller.submit(ch, request.user, submit.code)

@@ -4,6 +4,7 @@ from fastapi import Depends
 
 from app.controllers import AuthController, TaskController, UserController
 from app.controllers.challenge import ChoiceChallengeController, CodeChallengeController, TextChallengeController
+from app.controllers.scoreboard import ScoreboardController
 from app.models import Task, User
 from app.models.challenge import ChoiceChallenge, CodeChallenge, TextChallenge
 from app.repositories import TaskRepository, UserRepository
@@ -63,3 +64,8 @@ class Factory:
                 return self.get_code_challenge_controller(db_session)
             case _ as k:
                 raise ValueError(f"Unsupported ChallengeKind {k}")
+    
+    def get_scoreboard_controller(self, db_session=Depends(get_session)):
+        return ScoreboardController(
+            user_repository=self.user_repository(db_session=db_session)
+        )

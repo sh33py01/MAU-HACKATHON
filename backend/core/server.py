@@ -78,6 +78,7 @@ def create_app() -> FastAPI:
         dependencies=[Depends(Logging)],
         middleware=make_middleware(),
     )
+
     init_routers(app_=app_)
     init_listeners(app_=app_)
     init_cache()
