@@ -1,0 +1,26 @@
+<div class="modal">
+  <div class="modal-content">
+    <h2>Sign Up</h2>
+    <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" [(ngModel)]="userData.username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="userData.email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <p-password id="password" #passwordField="ngModel" [(ngModel)]="userData.password" [feedback]="true" name="password" required class="password-field" [toggleMask]="true" ></p-password>
+      </div>
+      <div class="form-group">
+        <label for="rewritepassword">Password</label>
+        <p-password id="rewritepassword" #passwordField="ngModel" [(ngModel)]="userData.password" [feedback]="true" name="password" required class="password-field" [toggleMask]="true" ></p-password>
+      </div>
+      <div class="center"> <!-- Added center class -->
+        <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>
