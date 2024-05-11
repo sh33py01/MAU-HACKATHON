@@ -4,7 +4,7 @@
       <div class="card-body" style="width: 100%; display: flex; justify-content: center; align-items: center">
         <p-floatLabel>
           <input pInputText id="username" [(ngModel)]="email" />
-          <label for="username">Username</label>
+          <label for="username">Email</label>
         </p-floatLabel>
 
         <p-floatLabel>
@@ -19,7 +19,7 @@
         </div>
         <br>
         <div style="display: flex; align-items: center; width: 100%; justify-content: center;">
-          <p-button label="Create an Account" [text]="true" severity="danger" />
+          <p-button label="Create an Account" [text]="true" severity="danger" (click)="openSignUpDialog()"/>
         </div>
       </ng-template>
     </p-card>

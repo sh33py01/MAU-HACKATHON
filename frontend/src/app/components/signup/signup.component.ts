@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NgForm} from "@angular/forms";
+import { AuthService} from "../../services/authentication/auth.service";
 
 @Component({
   selector: 'app-signup',
@@ -10,13 +11,24 @@ export class SignupComponent {
   userData = {
     username: '',
     email: '',
-    password: ''
+    password: '',
+    rewritepassword:''
   };
+
+  constructor(private authService: AuthService) {}
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      // Perform signup logic here
-      console.log(this.userData);
+      this.authService.signup(this.userData.email, this.userData.username, this.userData.password)
+        .subscribe(
+          response => {
+            console.log('Signup successful:', response);
+            location.reload();
+          },
+          error => {
+            console.error('Error in signup:', error);
+          }
+        );
     }
   }
 }

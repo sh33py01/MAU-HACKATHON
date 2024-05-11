@@ -16,7 +16,7 @@
       </div>
       <div class="form-group">
         <label for="rewritepassword">Password</label>
-        <p-password id="rewritepassword" #passwordField="ngModel" [(ngModel)]="userData.password" [feedback]="true" name="password" required class="password-field" [toggleMask]="true" ></p-password>
+        <p-password id="rewritepassword" #passwordField="ngModel" [(ngModel)]="userData.rewritepassword" [feedback]="true" name="rewritepassword" required class="password-field" [toggleMask]="true" ></p-password>
       </div>
       <div class="center"> <!-- Added center class -->
         <button type="submit" [disabled]="!signupForm.valid">Sign Up</button>
