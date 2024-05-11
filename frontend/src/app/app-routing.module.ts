@@ -5,14 +5,17 @@ import { CategoriesComponent } from "./components/categories/categories.componen
 import { ChallengesComponent } from "./components/challenges/challenges.component";
 import { LeaderboardComponent } from "./components/leaderboard/leaderboard.component";
 import { ChallangeCreationComponent } from "./components/challange-creation/challange-creation.component";
+import {GuestComponent} from "./components/guest/guest.component";
+import {AuthGuard} from "./services/authentication/auth-guard.service";
 
 const routes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'categories', component: CategoriesComponent },
-  { path: 'challenges', component: ChallengesComponent },
-  { path: 'leaderboard', component: LeaderboardComponent},
-  { path: 'challenge-creation', component:ChallangeCreationComponent },
+  { path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
+  { path: 'challenges', component: ChallengesComponent, canActivate: [AuthGuard] },
+  { path: 'leaderboard', component: LeaderboardComponent, canActivate: [AuthGuard] },
+  { path: 'challenge-creation', component:ChallangeCreationComponent, canActivate: [AuthGuard] },
+  { path: 'guest', component: GuestComponent },
   // { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 ];
 
