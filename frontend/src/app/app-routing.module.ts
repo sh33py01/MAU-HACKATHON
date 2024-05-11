@@ -4,6 +4,7 @@ import {LoginComponent} from "./components/login/login.component";
 import {CategoriesComponent} from "./components/categories/categories.component";
 import {ChallengesComponent} from "./components/challenges/challenges.component";
 import {LeaderboardComponent} from "./components/leaderboard/leaderboard.component";
+import {ChallangeCreationComponent} from "./components/challange-creation/challange-creation.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'challenges', component: ChallengesComponent },
   { path: 'leaderboard', component: LeaderboardComponent},
+  {path: 'challange-creation', component:ChallangeCreationComponent},
   // { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 ];
 

@@ -8,7 +8,7 @@ import { CardModule } from "primeng/card";
 import { FloatLabelModule } from "primeng/floatlabel";
 import { ChipsModule } from "primeng/chips";
 import { ButtonModule } from "primeng/button";
-import { FormsModule } from "@angular/forms";
+import { FormsModule , ReactiveFormsModule} from "@angular/forms";
 import { ToolbarModule } from "primeng/toolbar";
 import { ChallangeHandlerComponent } from './components/challange-handler/challange-handler.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -20,15 +20,20 @@ import { LeaderboardComponent } from './components/leaderboard/leaderboard.compo
 import {ChartModule} from "primeng/chart";
 import {DataViewModule} from "primeng/dataview";
 import {FlexLayoutModule} from "@angular/flex-layout";
+
+import {ChallangeCreationComponent} from "./components/challange-creation/challange-creation.component";
+import {StepsModule} from "primeng/steps";
+import {DialogModule} from "primeng/dialog";
+import {StepperModule} from "primeng/stepper";
+import {PickListModule} from "primeng/picklist";
+import {ListboxModule} from "primeng/listbox";
 import {PanelModule} from "primeng/panel";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FieldsetModule} from "primeng/fieldset";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {SpeedDialModule} from "primeng/speeddial";
-// import {DialogModule} from "primeng/dialog";
 import { DynamicDialogModule} from "primeng/dynamicdialog";
 import {MonacoEditorModule} from "ngx-monaco-editor-v2";
-
 
 @NgModule({
   declarations: [
@@ -39,6 +44,10 @@ import {MonacoEditorModule} from "ngx-monaco-editor-v2";
     CategoriesComponent,
     ChallengesComponent,
     LeaderboardComponent,
+    ChallangeHandlerComponent,
+    NavbarComponent,
+    CategoriesComponent,
+    ChallangeCreationComponent,
     ChallangeHandlerComponent
   ],
   imports: [
@@ -57,13 +66,18 @@ import {MonacoEditorModule} from "ngx-monaco-editor-v2";
     FlexLayoutModule,
     ChipModule,
     ChartModule,
+    StepsModule,
+    DialogModule,
+    StepperModule,
+    PickListModule,
+    ReactiveFormsModule,
+    ListboxModule,
     FormsModule,
     PanelModule,
     BrowserAnimationsModule,
     FieldsetModule,
     InputTextareaModule,
     SpeedDialModule,
-    // DialogModule,
     DynamicDialogModule,
     MonacoEditorModule.forRoot()
   ],
