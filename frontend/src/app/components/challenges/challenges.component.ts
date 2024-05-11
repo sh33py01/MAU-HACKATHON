@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
 import {ChallangeHandlerComponent} from "../challange-handler/challange-handler.component";
+import {ChallangeCreationComponent} from "../challange-creation/challange-creation.component";
 
 @Component({
   selector: 'app-challenges',
@@ -24,6 +25,11 @@ export class ChallengesComponent {
   }
 
   handleFixedButtonClick() {
-
+    this.dialogRef  = this.dialogService.open(ChallangeCreationComponent, {
+      // data: { questionId: 1, question: 'Write a function that returns the sum of two numbers'},
+      // showHeader: false,
+      header: 'Create a Challenge',
+      // width: '70%'
+    });
   }
 }
