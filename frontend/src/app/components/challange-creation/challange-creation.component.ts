@@ -61,7 +61,9 @@ export class ChallangeCreationComponent {
     }
 
     this.api.createChallenge(challenge).subscribe((res) => {
-      console.log(res);
+      if(res){
+        location.reload();
+      }
     });
   }
 }

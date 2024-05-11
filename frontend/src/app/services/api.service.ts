@@ -18,13 +18,19 @@ export class ApiService {
         description: item.description,
         id: item.id,
         question: item.question,
-        solved: item.solved
+        solved: item.solved,
+        points: item.points,
+        category: item.category
       })))
     );
   }
 
   createChallenge(challengeData: any): Observable<any> {
     return this.http.put<any>(this.gatewayUrl + 'challenges/code', challengeData);
+  }
+
+  submitChallenge(challengeId: number, answer: string): Observable<any> {
+    return this.http.post<any>(this.gatewayUrl + `challenges/code/${challengeId}`, {code: answer});
   }
 
 }

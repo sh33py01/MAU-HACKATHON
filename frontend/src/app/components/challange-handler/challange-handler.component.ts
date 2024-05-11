@@ -5,6 +5,7 @@ import {
   OnInit, Optional,
 } from '@angular/core';
 import {DynamicDialogConfig} from "primeng/dynamicdialog";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'app-challange-handler',
@@ -12,7 +13,7 @@ import {DynamicDialogConfig} from "primeng/dynamicdialog";
   styleUrl: './challange-handler.component.scss'
 })
 export class ChallangeHandlerComponent implements OnInit {
-  constructor(@Optional() @Inject(DynamicDialogConfig) public data: any) {}
+  constructor(@Optional() @Inject(DynamicDialogConfig) public data: any, private api: ApiService) {}
   @Input() question: string | undefined;
 
   ngOnInit() {
@@ -21,8 +22,17 @@ export class ChallangeHandlerComponent implements OnInit {
 
   html: string | undefined;
 
-  editorOptions = {theme: 'vs-dark', language: 'javascript', style: {width: '100%', height: '100%'}};
-  code: string= 'function x() {\nconsole.log("Hello world!");\n}';
+  editorOptions = {theme: 'vs-dark', language: 'python', style: {width: '100%', height: '100%'}};
+  code: string= '';
   protected readonly location = location;
+
+
+  submitChallenge() {
+    this.api.submitChallenge(this.data.data.id, this.code).subscribe((res) => {
+     if(res){
+       location.reload();
+     }
+    });
+  }
 }
 

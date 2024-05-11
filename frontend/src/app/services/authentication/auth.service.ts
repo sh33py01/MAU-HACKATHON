@@ -40,6 +40,17 @@ export class AuthService {
     location.replace('/login');
   }
 
+  signup(email: string, username: string, password: string): Observable<any> {
+    return this.http.post<any>(this.gatewayUrl + 'users/signup', { email, password, username }).pipe(
+      tap((res) => {
+        if(res.code === 201){
+          location.reload();
+        }else {
+          console.error('Error in signup request:', res); // Debugging line
+        }
+      }));
+  }
+
   isAuthenticated(): boolean {
     return !!localStorage.getItem(this.accessTokenKey);
   }
