@@ -1,80 +1,70 @@
-import {Component, OnInit} from '@angular/core';
-import {DropdownModule} from "primeng/dropdown";
-import {DialogModule} from "primeng/dialog";
-import {FormControl, FormGroup, FormsModule} from "@angular/forms";
-import {StepperModule} from "primeng/stepper";
-import {ButtonModule} from "primeng/button";
-import {MenuItem} from "primeng/api";
-import {StepsModule} from "primeng/steps";
+import { Component } from '@angular/core';
+import { FormGroup } from "@angular/forms";
+import {ApiService} from "../../services/api.service";
+
+interface Category {
+  name: string;
+}
+
+interface Challenge  {
+  id: number;
+  question: string;
+  description: string;
+  category: string;
+  points: number;
+  cases: [
+    {
+      content: string;
+      answer: string;
+    }
+  ]
+}
 
 @Component({
   selector: 'app-challange-creation',
   templateUrl: './challange-creation.component.html',
-  styleUrl: './challange-creation.component.scss'
+  styleUrl: './challange-creation.component.scss',
+  providers: [ ApiService ],
 })
 
-export class ChallangeCreationComponent implements OnInit {
-
-  sourceOptions: string[] = ['Alternative', 'Code'];
-  targetOptions: string[] = [];
-  selectedOption: string | undefined;
-
-  textFormVisible = false;
-  pickListFormVisible = false;
-
-  display: boolean = false;
-  activeIndex: number = 0;
-  steps: MenuItem[] = [
-    {label: 'Step 1'},
-    {label: 'Step 2'},
-    {label: 'Step 3'}
-  ];
-
-  nextStep() {
-    if (this.activeIndex < this.steps.length - 1) {
-      this.activeIndex++;
-    }
-  }
-
-  prevStep() {
-    if (this.activeIndex > 0) {
-      this.activeIndex--;
-    }
-  }
-
-  cities!: City[];
-
+export class ChallangeCreationComponent {
   formGroup!: FormGroup;
+  titleValue: any;
+  questionValue: any;
+  answerValue: any;
+  categories:Category[] = [
+    { name: 'Java'},{ name: 'Python'}, {name: 'Javascript'}, {name:'Go'}, {name:'Php'}, {name:'C++'}, {name:'Assembly'}];
+  selectedCategory: any;
+  points: any;
 
-  ngOnInit() {
-    this.cities = [
-      { name: 'Code', code: 'NY' },
-      { name: 'Alternative', code: 'RM' }
-    ];
+  constructor(private api: ApiService) {
+  }
 
-    this.formGroup = new FormGroup({
-      selectedCity: new FormControl<City | null>(null)
+  submitQuestion() {
+    console.log(this.titleValue);
+    console.log(this.questionValue);
+    console.log(this.answerValue);
+    console.log(this.points)
+    console.log(this.selectedCategory.name);
+    const challenge: Challenge = {
+      id: 0,
+      question: this.questionValue,
+      description: this.titleValue,
+      category: this.selectedCategory.name,
+      points: this.points,
+      cases: [
+        {
+          content: "",
+          answer: this.answerValue
+        }
+      ]
+    }
+
+    this.api.createChallenge(challenge).subscribe((res) => {
+      if(res){
+        location.reload();
+      }
     });
   }
-
-  onSubmit() {
-    // Handle form submission logic based on the selected form
-    if (this.textFormVisible) {
-      // Handle text form submission
-    } else if (this.pickListFormVisible) {
-      // Handle picklist form submission
-    }
-  }
-
-
-  toggleForms(selectedValue: string) {
-    this.textFormVisible = selectedValue === 'Alternative';
-    this.pickListFormVisible = selectedValue === 'Code';
-  }
-}
-
-interface City {
-  name: string,
-  code: string
 }
 

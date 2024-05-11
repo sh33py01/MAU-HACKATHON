@@ -34,6 +34,14 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {SpeedDialModule} from "primeng/speeddial";
 import { DynamicDialogModule} from "primeng/dynamicdialog";
 import {MonacoEditorModule} from "ngx-monaco-editor-v2";
+import {TableModule} from "primeng/table";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptor} from "./services/authentication/auth-interceptor.service";
+import { GuestComponent } from './components/guest/guest.component';
+import {ScrollPanelModule} from "primeng/scrollpanel";
+import {DropdownModule} from "primeng/dropdown";
+import {InputNumberModule} from "primeng/inputnumber";
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +56,9 @@ import {MonacoEditorModule} from "ngx-monaco-editor-v2";
     NavbarComponent,
     CategoriesComponent,
     ChallangeCreationComponent,
-    ChallangeHandlerComponent
+    ChallangeHandlerComponent,
+    GuestComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -79,9 +89,16 @@ import {MonacoEditorModule} from "ngx-monaco-editor-v2";
     InputTextareaModule,
     SpeedDialModule,
     DynamicDialogModule,
-    MonacoEditorModule.forRoot()
+    MonacoEditorModule.forRoot(),
+    TableModule,
+    HttpClientModule,
+    ScrollPanelModule,
+    DropdownModule,
+    InputNumberModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
