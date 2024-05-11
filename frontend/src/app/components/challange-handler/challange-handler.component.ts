@@ -1,31 +1,27 @@
-import { Component, Input } from '@angular/core';
-import {MenuItem} from "primeng/api";
+import {
+  Component,
+  Inject,
+  Input,
+  OnInit,
+} from '@angular/core';
+import {DynamicDialogConfig} from "primeng/dynamicdialog";
 
-  @Component({
+@Component({
   selector: 'app-challange-handler',
   templateUrl: './challange-handler.component.html',
   styleUrl: './challange-handler.component.scss'
 })
-export class ChallangeHandlerComponent {
-    @Input() question: string | undefined
-    items: MenuItem[]  = [
-      {
-        icon: 'pi pi-times',
-        command: () => {
-          // CLOSE MODAL
-        }
-      },
-      {
-        icon: 'pi pi-check',
-        command: () => {
-          // SUBMIT
-        }
-      }
+export class ChallangeHandlerComponent implements OnInit {
+  constructor(@Inject(DynamicDialogConfig) public data: any) {}
+  @Input() question: string = this.data.question;
 
-
-    ];
-
-
-
+  ngOnInit() {
+    this.question = this.data.data.question;
   }
+
+  html: string | undefined;
+
+  editorOptions = {theme: 'vs-dark', language: 'javascript', style: {width: '100%', height: '100%'}};
+  code: string= 'function x() {\nconsole.log("Hello world!");\n}';
+}
 

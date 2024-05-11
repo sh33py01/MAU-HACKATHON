@@ -4,18 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import {CardModule} from "primeng/card";
-import {FloatLabelModule} from "primeng/floatlabel";
-import {ChipsModule} from "primeng/chips";
-import {ButtonModule} from "primeng/button";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ToolbarModule} from "primeng/toolbar";
+import { CardModule } from "primeng/card";
+import { FloatLabelModule } from "primeng/floatlabel";
+import { ChipsModule } from "primeng/chips";
+import { ButtonModule } from "primeng/button";
+import { FormsModule , ReactiveFormsModule} from "@angular/forms";
+import { ToolbarModule } from "primeng/toolbar";
 import { ChallangeHandlerComponent } from './components/challange-handler/challange-handler.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import {PasswordModule} from "primeng/password";
+import { PasswordModule } from "primeng/password";
 import { CategoriesComponent } from './components/categories/categories.component';
-import {PanelModule} from "primeng/panel";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ChallengesComponent } from './components/challenges/challenges.component';
+import {ChipModule} from "primeng/chip";
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import {ChartModule} from "primeng/chart";
 import {DataViewModule} from "primeng/dataview";
 import {FlexLayoutModule} from "@angular/flex-layout";
 
@@ -30,11 +32,18 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FieldsetModule} from "primeng/fieldset";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {SpeedDialModule} from "primeng/speeddial";
+import { DynamicDialogModule} from "primeng/dynamicdialog";
+import {MonacoEditorModule} from "ngx-monaco-editor-v2";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    ChallangeHandlerComponent,
+    NavbarComponent,
+    CategoriesComponent,
+    ChallengesComponent,
+    LeaderboardComponent,
     ChallangeHandlerComponent,
     NavbarComponent,
     CategoriesComponent,
@@ -55,6 +64,8 @@ import {SpeedDialModule} from "primeng/speeddial";
     BrowserAnimationsModule,
     DataViewModule,
     FlexLayoutModule,
+    ChipModule,
+    ChartModule,
     StepsModule,
     DialogModule,
     StepperModule,
@@ -66,7 +77,9 @@ import {SpeedDialModule} from "primeng/speeddial";
     BrowserAnimationsModule,
     FieldsetModule,
     InputTextareaModule,
-    SpeedDialModule
+    SpeedDialModule,
+    DynamicDialogModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
