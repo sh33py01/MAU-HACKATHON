@@ -1,33 +1,34 @@
 <div class="card flex justify-content-center" style="width: 40vw">
-  <ng-form>
     <br>
     <p-floatLabel>
-      <input pInputText id="username" [(ngModel)]="titleValue" style="width: 100%" />
-      <label for="username">Title</label>
+      <input pInputText id="text" [(ngModel)]="titleValue" style="width: 100%" />
+      <label for="text">Title</label>
     </p-floatLabel>
     <br>
     <br>
     <p-floatLabel>
       <textarea
+        id="question"
         style="width: 100%; height: 100px; resize: none;"
         rows="5"
         cols="30"
         pInputTextarea
         [(ngModel)]="questionValue">
     </textarea>
-      <label>Question</label>
+      <label for="question">Question</label>
     </p-floatLabel>
     <br><br>
     <p-floatLabel>
       <textarea
+        id="answer"
         style="width: 100%; height: 80px; resize: none;"
         rows="5"
         cols="30"
         pInputTextarea
         [(ngModel)]="answerValue">
       </textarea>
-      <label>Solution</label>
+      <label for="answer">Solution</label>
     </p-floatLabel>
-  </ng-form>
+  <br>
   <p-button label="Submit" class="w-100" (click)="submitQuestion()"></p-button>
 </div>
