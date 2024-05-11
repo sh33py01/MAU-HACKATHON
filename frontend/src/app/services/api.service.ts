@@ -38,8 +38,9 @@ export class ApiService {
   retrieveScoreboard(){
       return this.http.get<LeaderBoardScore[]>(this.gatewayUrl+'scoreboard').pipe(
           map((res: any[]) => res.map(item => ({
-              user: item.user,
-              score: item.score
+              username: item.username,
+              score: item.score,
+              rank : 0
           })))
       )
   }

@@ -12,7 +12,7 @@
     </p-card>
   </div>
   <div style="display: flex; flex-direction: column; width: 100%" class="p-card">
-    <p-table [columns]="cols" [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [columns]="cols" [value]="leaderboard" [tableStyle]="{ 'min-width': '50rem' }">
       <ng-template pTemplate="header" let-columns>
         <tr>
           <th *ngFor="let col of columns">

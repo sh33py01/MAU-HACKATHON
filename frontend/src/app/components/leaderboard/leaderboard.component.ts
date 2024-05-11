@@ -1,4 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {ApiService} from "../../services/api.service";
+import {LeaderBoardScore} from "./leaderboardScore.model";
+import {Observable} from "rxjs";
+import {ChallengeModel} from "../challenges/challenge.model";
 
 interface Column {
   field: string;
@@ -12,26 +16,34 @@ interface Product {}
   styleUrl: './leaderboard.component.scss'
 })
 export class LeaderboardComponent implements OnInit{
+  leaderboard: LeaderBoardScore[] = [];
   data: any;
   options: any;
   data1: any;
   options1: any;
 
   products!: Product[];
-
   cols!: Column[];
 
-  // constructor(private productService: ProductService) {}
+   constructor(private api: ApiService) {}
 
-  // ngOnInit() {
-  //
-  // }
+
 
   ngOnInit() {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
     const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+    this.api.retrieveScoreboard().subscribe((res: LeaderBoardScore[]) => {
+      for(let i = 0 ; i < res.length ; i++){
+         res[i].rank = i+1;
+        console.log('response: ' + JSON.stringify(res[i].rank));
+      }
+      this.leaderboard = res;
+      console.log(this.leaderboard);
+    });
+
+
 
     this.data = {
       labels: ['Java', 'Python', 'Javascript', 'Go', 'Php', 'C++', 'Assembly'],
@@ -67,6 +79,9 @@ export class LeaderboardComponent implements OnInit{
         }
       }
     };
+
+
+
 
     this.products = [
       {
@@ -168,10 +183,10 @@ export class LeaderboardComponent implements OnInit{
     ];
 
     this.cols = [
-      { field: 'place', header: 'Place' },
-      { field: 'name', header: 'Name' },
+      { field: 'rank', header: 'Place' },
+      { field: 'username', header: 'Name' },
       // { field: 'category', header: 'Category' },
-      { field: 'quantity', header: 'Points' }
+      { field: 'score', header: 'Points' }
     ];
     this.data1 = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -218,5 +233,7 @@ export class LeaderboardComponent implements OnInit{
       }
     };
   }
+
+
 
 }

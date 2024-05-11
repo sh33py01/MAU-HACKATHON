@@ -1,4 +1,5 @@
 export interface LeaderBoardScore{
-  user: string;
+  username: string;
   score: number;
+  rank: number;
 }
