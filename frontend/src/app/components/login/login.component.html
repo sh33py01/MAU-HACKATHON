@@ -1,9 +1,9 @@
 <div class="main-div">
   <div style="display: flex;">
     <p-card header="Login to the Learning Platform">
-      <div class="card-body">
+      <div class="card-body" style="width: 100%; display: flex; justify-content: center; align-items: center">
         <p-floatLabel>
-          <input pInputText id="username" [(ngModel)]="username" />
+          <input pInputText id="username" [(ngModel)]="email" />
           <label for="username">Username</label>
         </p-floatLabel>
 
@@ -13,9 +13,13 @@
         </p-floatLabel>
       </div>
       <ng-template pTemplate="footer">
-        <div  style="display: flex; flex-direction: row; gap: 16px;">
-          <p-button label="Login" severity="primary" class="w-full" styleClass="w-full" />
-          <p-button label="Continue as Guest" severity="secondary" class="w-full" styleClass="w-full" />
+        <div  style="display: flex; flex-direction: row; gap: 16px; justify-content: space-evenly; width: 100%">
+          <p-button label="Login" severity="primary" class="w-full" styleClass="w-full" (click)="loginHandler()"/>
+          <p-button label="Continue as Guest" severity="secondary" class="w-full" styleClass="w-full" (click)="location.replace('/guest')" />
+        </div>
+        <br>
+        <div style="display: flex; align-items: center; width: 100%; justify-content: center;">
+          <p-button label="Create an Account" [text]="true" severity="danger" />
         </div>
       </ng-template>
     </p-card>

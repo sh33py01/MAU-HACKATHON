@@ -15,7 +15,7 @@
   </div>
   <br/>
   <div class="flex justify-content-center">
-    <button pButton type="button" label="Submit" (click)="true"></button>
+    <button pButton type="button" label="Submit" (click)="true" *ngIf="location.pathname !== '/guest'"></button>
   </div>
 </div>
 

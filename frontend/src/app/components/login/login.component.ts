@@ -1,25 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-// import { AuthService } from "../../services/auth.service";
-import { Location } from '@angular/common';
+import { Component } from '@angular/core';
+import {AuthService} from "../../services/authentication/auth.service";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  providers: [AuthService, HttpClient]
 })
 export class LoginComponent {//implements OnInit {
-  username: string | undefined;
+  email: string | undefined;
   password: string | undefined;
   // constructor(private location: Location, private router: Router, private authService: AuthService) { }
+  constructor(private authService: AuthService) {
+    this.authService = authService;
+  }
+  loginHandler() {
+    if(this.email && this.password) {
+      this.authService.login(this.email, this.password).subscribe((res) => {
+        console.log(res);
+      });
+    }
+  }
 
-  // ngOnInit() {
-  //   if (this.authService.isLoggedIn) {
-  //     this.router.navigate(['dashboard']);
-  //   }
-  // }
-  //
-  // GoogleAuth() {
-  //   this.authService.GoogleAuth();
-  // }
+  protected readonly location = location;
 }
