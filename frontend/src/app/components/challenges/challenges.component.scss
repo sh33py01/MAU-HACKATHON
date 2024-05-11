@@ -13,3 +13,10 @@
   /* Add your styles here. For example: */
   background-color: transparent;
 }
+
+.fixed-button {
+  position: fixed;
+  bottom: 20px; /* Adjust the distance from the bottom as needed */
+  right: 20px; /* Adjust the distance from the right as needed */
+  z-index: 999; /* Ensure the button appears above other content */
+}

@@ -22,4 +22,8 @@ export class ChallengesComponent {
       // width: '70%'
     });
   }
+
+  handleFixedButtonClick() {
+
+  }
 }
