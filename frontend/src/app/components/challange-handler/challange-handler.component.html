@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="panel">
+  <p-fieldset  legend="Challange" [toggleable]="true">
+    <p >
+      {{question}}
+    </p>
+  </p-fieldset>
+  </div>
+
+  <div class="card flex justify-content-center">
+    <br>
+    <div style="height: 500px">
+      <ngx-monaco-editor style="height: 100%; width: 790px;" [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+    </div>
+  </div>
+  <br/>
+  <div class="flex justify-content-center">
+    <button pButton type="button" label="Submit" (click)="true"></button>
+  </div>
+</div>
+
+
+
+

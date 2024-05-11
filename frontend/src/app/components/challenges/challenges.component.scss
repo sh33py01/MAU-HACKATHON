@@ -1,0 +1,15 @@
+.main-div {
+  display: flex;
+  padding: 0 32px 0 32px;
+  width: 100%;
+}
+
+.category-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+::ng-deep .p-dialog .p-dialog-content {
+  /* Add your styles here. For example: */
+  background-color: transparent;
+}

@@ -1,0 +1,91 @@
+<div class="card flex justify-content-center">
+  <p-stepper>
+    <p-stepperPanel header="Category Selection">
+      <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+        <div class="flex flex-column h-12rem">
+          <!-- PickList Component -->
+          <p-pickList [source]="sourceOptions" [target]="targetOptions" [showSourceControls]="false" [showTargetControls]="false"
+                      [(ngModel)]="selectedOption" [sourceHeader]="'Available Options'" [targetHeader]="'Selected Option'">
+            <ng-template let-item>
+              {{item}}
+            </ng-template>
+          </p-pickList>
+        </div>
+        <div class="flex pt-4 justify-content-end">
+          <p-button
+            label="Next"
+            icon="pi pi-arrow-right"
+            iconPos="right"
+            (onClick)="nextCallback.emit()" />
+        </div>
+      </ng-template>
+    </p-stepperPanel>
+    <p-stepperPanel header="Challenge Selection">
+      <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
+        <div class="flex flex-column h-12rem">
+          <div class="card flex justify-content-center">
+            <form [formGroup]="formGroup">
+              <p-listbox
+                [options]="cities"
+                formControlName="selectedCity"
+                optionLabel="name"
+                [style]="{ width: '15rem' }"
+                [listStyle]="{'max-height': '220px'}" />
+            </form>
+          </div>
+        </div>
+        <div class="flex pt-4 justify-content-between">
+          <p-button
+            label="Back"
+            icon="pi pi-arrow-left"
+            (onClick)="prevCallback.emit()" />
+          <p-button
+            label="Next"
+            icon="pi pi-arrow-right"
+            iconPos="right"
+            (onClick)="nextCallback.emit()" />
+        </div>
+      </ng-template>
+    </p-stepperPanel>
+    <p-stepperPanel header="Content Insertion">
+      <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+        <div class="flex flex-column h-12rem">
+          <div class="flex flex-column h-12rem">
+            <!-- Conditionally render forms based on selected value -->
+            <div *ngIf="textFormVisible">
+              <!-- Text form -->
+              <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                <!-- Text form content here -->
+                <input type="text" placeholder="Enter content here" />
+              </div>
+            </div>
+            <div *ngIf="pickListFormVisible">
+              <!-- Picklist form -->
+              <div class="card flex justify-content-center">
+                <!-- Picklist component content here -->
+                <p-pickList
+                  [source]="sourceOptions"
+                  [target]="targetOptions"
+                  [showSourceControls]="true"
+                  [showTargetControls]="true"
+                  [(ngModel)]="selectedOption"
+                  [sourceHeader]="'Available Options'"
+                  [targetHeader]="'Selected Option'">
+                  <ng-template let-item>
+                    {{ item }}
+                  </ng-template>
+                </p-pickList>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex pt-4 justify-content-start">
+          <p-button
+            label="Back"
+            icon="pi pi-arrow-left"
+            (onClick)="prevCallback.emit()" />
+        </div>
+      </ng-template>
+    </p-stepperPanel>
+  </p-stepper>
+</div>

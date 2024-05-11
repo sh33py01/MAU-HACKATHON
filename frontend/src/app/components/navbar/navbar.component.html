@@ -1,0 +1,32 @@
+<div class="card" style="padding: 15px 30px 15px 30px;">
+  <p-toolbar
+    styleClass="bg-gray-900 shadow-2"
+    [style]="{ 'border-radius': '3rem', 'background-image': 'linear-gradient(to right, var(--bluegray-500), var(--bluegray-800))', 'color': 'white', 'padding':'10px 30px 10px 30px' }">
+    <ng-template pTemplate="start">
+      <img src="assets/images/logo.svg"  alt="logo" style="height: 36px;"/>
+    </ng-template>
+    <ng-template pTemplate="center">
+      <div class="flex flex-wrap align-items-center navbar-center">
+        <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200" routerLink="challenges">
+          <i class="pi pi-sparkles text-2xl" style="color: white"></i>
+          <span style="color: white; margin-left: 16px;">Challenges</span>
+        </button>
+        <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200" routerLink="categories">
+          <i class="pi pi-th-large text-2xl" style="color: white"></i>
+          <span style="color: white; margin-left: 16px;">Categories</span>
+        </button>
+        <button class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200" routerLink="leaderboard">
+          <i class="pi pi-trophy text-2xl" style="color: white"></i>
+          <span style="color: white; margin-left: 16px;">Leaderboard</span>
+        </button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="end">
+      <div class="flex align-items-center gap-2">
+        <span class="font-bold text-bluegray-50">
+                Log Out
+            </span>
+      </div>
+    </ng-template>
+  </p-toolbar>
+</div>
