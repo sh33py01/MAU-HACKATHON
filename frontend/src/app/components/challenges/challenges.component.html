@@ -10,13 +10,14 @@
           <span class="font-bold" style="font-size: x-large">
                 {{challenge.description}}
             </span>
-          <p-chip label="Front-End" />
+          <span class="p-tag p-tag-info" style="align-self: center">
+            {{challenge.category}} </span>
         </div>
       </ng-template>
       <ng-template pTemplate="footer">
         <div class="category-footer">
           <span class="p-text-secondary" style="align-self: center">
-            20 points
+            {{challenge.points}} points
           </span>
           <span *ngIf="challenge.solved" class="p-tag p-tag-success" style="align-self: center">
             Solved

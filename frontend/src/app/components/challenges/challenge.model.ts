@@ -3,4 +3,6 @@ export interface ChallengeModel {
   id: number;
   question: string;
   solved: boolean;
+  points: number;
+  category: string;
 }
