@@ -41,6 +41,7 @@ import { GuestComponent } from './components/guest/guest.component';
 import {ScrollPanelModule} from "primeng/scrollpanel";
 import {DropdownModule} from "primeng/dropdown";
 import {InputNumberModule} from "primeng/inputnumber";
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {InputNumberModule} from "primeng/inputnumber";
     CategoriesComponent,
     ChallangeCreationComponent,
     ChallangeHandlerComponent,
-    GuestComponent
+    GuestComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
