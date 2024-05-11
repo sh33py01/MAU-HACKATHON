@@ -1,5 +1,4 @@
 <div class="container">
-<p-panel >
   <div class="panel">
   <p-fieldset  legend="Challange" [toggleable]="true">
     <p >
@@ -10,23 +9,14 @@
 
   <div class="card flex justify-content-center">
     <br>
-    <p-floatLabel>
-        <textarea
-          id="float-input"
-          rows="5"
-          cols="80"
-          [autoResize]="true"
-          pInputTextarea>
-        </textarea>
-      <label for="float-input">Answer</label>
-    </p-floatLabel>
+    <div style="height: 500px">
+      <ngx-monaco-editor style="height: 100%; width: 790px;" [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+    </div>
   </div>
-</p-panel>
-  <p-speedDial
-    [model]="items"
-    direction="down"
-    [radius]="80"
-    type="semi-circle" />
+  <br/>
+  <div class="flex justify-content-center">
+    <button pButton type="button" label="Submit" (click)="true"></button>
+  </div>
 </div>
 
 

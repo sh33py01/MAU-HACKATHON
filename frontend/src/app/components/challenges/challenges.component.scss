@@ -8,3 +8,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+::ng-deep .p-dialog .p-dialog-content {
+  /* Add your styles here. For example: */
+  background-color: transparent;
+}

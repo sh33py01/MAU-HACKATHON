@@ -25,6 +25,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FieldsetModule} from "primeng/fieldset";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {SpeedDialModule} from "primeng/speeddial";
+// import {DialogModule} from "primeng/dialog";
+import { DynamicDialogModule} from "primeng/dynamicdialog";
+import {MonacoEditorModule} from "ngx-monaco-editor-v2";
 
 
 @NgModule({
@@ -59,7 +62,10 @@ import {SpeedDialModule} from "primeng/speeddial";
     BrowserAnimationsModule,
     FieldsetModule,
     InputTextareaModule,
-    SpeedDialModule
+    SpeedDialModule,
+    // DialogModule,
+    DynamicDialogModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
