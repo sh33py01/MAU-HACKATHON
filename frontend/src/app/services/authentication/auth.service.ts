@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   signup(email: string, username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.gatewayUrl + 'users/signup', { email, password, username }).pipe(
+    return this.http.post<any>(this.gatewayUrl + 'users', { email, password, username }).pipe(
       tap((res) => {
         if(res.code === 201){
           location.reload();
