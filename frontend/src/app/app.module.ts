@@ -34,6 +34,7 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {SpeedDialModule} from "primeng/speeddial";
 import { DynamicDialogModule} from "primeng/dynamicdialog";
 import {MonacoEditorModule} from "ngx-monaco-editor-v2";
+import {TableModule} from "primeng/table";
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import {MonacoEditorModule} from "ngx-monaco-editor-v2";
     InputTextareaModule,
     SpeedDialModule,
     DynamicDialogModule,
-    MonacoEditorModule.forRoot()
+    MonacoEditorModule.forRoot(),
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
