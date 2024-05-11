@@ -4,8 +4,22 @@
       <input pInputText id="text" [(ngModel)]="titleValue" style="width: 100%" />
       <label for="text">Title</label>
     </p-floatLabel>
+  <br>
+  <div style="display: flex; flex-direction: row; gap: 16px; justify-content: space-evenly">
+    <p-dropdown
+      [options]="categories"
+      [(ngModel)]="selectedCategory"
+      optionLabel="name"
+      placeholder="Select a Category"
+      />
     <br>
-    <br>
+    <p-inputNumber
+      inputId="integeronly"
+      placeholder="Points"
+      [(ngModel)]="points"
+      />
+  </div>
+  <br>
     <p-floatLabel>
       <textarea
         id="question"

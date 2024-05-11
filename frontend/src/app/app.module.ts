@@ -39,6 +39,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./services/authentication/auth-interceptor.service";
 import { GuestComponent } from './components/guest/guest.component';
 import {ScrollPanelModule} from "primeng/scrollpanel";
+import {DropdownModule} from "primeng/dropdown";
+import {InputNumberModule} from "primeng/inputnumber";
 
 @NgModule({
   declarations: [
@@ -89,6 +91,8 @@ import {ScrollPanelModule} from "primeng/scrollpanel";
     TableModule,
     HttpClientModule,
     ScrollPanelModule,
+    DropdownModule,
+    InputNumberModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

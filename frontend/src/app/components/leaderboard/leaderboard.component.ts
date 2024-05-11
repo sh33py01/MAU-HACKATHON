@@ -71,79 +71,79 @@ export class LeaderboardComponent implements OnInit{
     this.products = [
       {
         id: '1000',
-        code: 'f230fh0g3',
+        place: '1',
         name: 'Bamboo Watch',
         description: 'Product Description',
         image: 'bamboo-watch.jpg',
         price: 65,
         category: 'Accessories',
-        quantity: 24,
+        quantity: 58,
         inventoryStatus: 'INSTOCK',
         rating: 5
       },
       {
         id: '2000',
-        code: 'as3as4as34asa',
+        place: '2',
         name: 'Black Watch',
         description: 'Product Description',
         image: 'black-watch.jpg',
         price: 72,
         category: 'Accessories',
-        quantity: 61,
+        quantity: 30,
         inventoryStatus: 'INSTOCK',
         rating: 4
       },
       {
         id: '3000',
-        code: 'asht34t3g3',
+        place: '3',
         name: 'Blue Band',
         description: 'Product Description',
         image: 'blue-band.jpg',
         price: 79,
         category: 'Fitness',
-        quantity: 2,
+        quantity: 22,
         inventoryStatus: 'LOWSTOCK',
         rating: 3
       },
       {
         id: '4000',
-        code: 'sdf43534t3',
+        place: '4',
         name: 'Blue T-Shirt',
         description: 'Product Description',
         image: 'blue-t-shirt.jpg',
         price: 29,
         category: 'Clothing',
-        quantity: 25,
+        quantity: 15,
         inventoryStatus: 'INSTOCK',
         rating: 5
       },
       {
         id: '5000',
-        code: 'treg34rth',
+        place: '5',
         name: 'Bracelet',
         description: 'Product Description',
         image: 'bracelet.jpg',
         price: 15,
         category: 'Accessories',
-        quantity: 73,
+        quantity: 9,
         inventoryStatus: 'INSTOCK',
         rating: 4
       },
       {
         id: '6000',
-        code: 'fg834r',
+        place: '6',
         name: 'Brown Purse',
         description: 'Product Description',
         image: 'brown-purse.jpg',
         price: 120,
         category: 'Accessories',
-        quantity: 0,
+        quantity: 8,
         inventoryStatus: 'OUTOFSTOCK',
         rating: 4
       },
       {
         id: '7000',
-        code: 't8f8u4t8t',
+        place: '7',
         name: 'Chakra Bracelet',
         description: 'Product Description',
         image: 'chakra-bracelet.jpg',
@@ -155,23 +155,23 @@ export class LeaderboardComponent implements OnInit{
       },
       {
         id: '8000',
-        code: 'stht4w35t',
+        place: '8',
         name: 'Galaxy Earrings',
         description: 'Product Description',
         image: 'galaxy-earrings.jpg',
         price: 34,
         category: 'Accessories',
-        quantity: 23,
+        quantity: 3,
         inventoryStatus: 'INSTOCK',
         rating: 5
       }
     ];
 
     this.cols = [
-      { field: 'code', header: 'Code' },
+      { field: 'place', header: 'Place' },
       { field: 'name', header: 'Name' },
-      { field: 'category', header: 'Category' },
-      { field: 'quantity', header: 'Quantity' }
+      // { field: 'category', header: 'Category' },
+      { field: 'quantity', header: 'Points' }
     ];
     this.data1 = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

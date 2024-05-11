@@ -23,4 +23,8 @@ export class ApiService {
     );
   }
 
+  createChallenge(challengeData: any): Observable<any> {
+    return this.http.put<any>(this.gatewayUrl + 'challenges/code', challengeData);
+  }
+
 }

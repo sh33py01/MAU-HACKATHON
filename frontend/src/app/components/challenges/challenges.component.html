@@ -1,3 +1,6 @@
+<div style="display: flex; align-items: center; width: 100%; justify-content: flex-end; padding: 0 36px 16px 0;">
+  <p-button label="Add Challenge" icon="pi pi-plus" (click)="handleFixedButtonClick()"></p-button>
+</div>
 <div fxLayout="row wrap" fxLayoutGap="16px grid" class="main-div">
   <div fxFlex="100" fxFlex.gt-sm="33" class="p-2 card" *ngFor="let challenge of challenges">
     <p-panel [toggleable]="false">
@@ -15,10 +18,12 @@
           <span class="p-text-secondary" style="align-self: center">
             20 points
           </span>
-          <p-button label="Open" icon="pi pi-arrow-right" iconPos="right" class="p-button-outlined" (click)="openChallange(challenge.id)"></p-button>
+          <span *ngIf="challenge.solved" class="p-tag p-tag-success" style="align-self: center">
+            Solved
+          </span>
+          <p-button [disabled]="challenge.solved"  label="Open" icon="pi pi-arrow-right" iconPos="right" class="p-button-outlined" (click)="openChallange(challenge.id)"></p-button>
         </div>
       </ng-template>
     </p-panel>
   </div>
-  <p-button label="Add Challenge" icon="pi pi-plus" class="fixed-button" (click)="handleFixedButtonClick()"></p-button>
 </div>
